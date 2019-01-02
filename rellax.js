@@ -164,7 +164,7 @@
       // If the option relativeToWrapper is true, use the wrappers offset to top, subtracted from the current page scroll.
       if (self.options.relativeToWrapper) {
         var scrollPosY = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
-        wrapperPosY = scrollPosY - self.options.wrapper.offsetTop;
+        wrapperPosY = scrollPosY - self.options.wrapper.getBoundingClientRect().top;
       }
       var posY = self.options.vertical ? ( dataPercentage || self.options.center ? wrapperPosY : 0 ) : 0;
       var posX = self.options.horizontal ? ( dataPercentage || self.options.center ? (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft) : 0 ) : 0;
@@ -233,7 +233,7 @@
       // If option relativeToWrapper is true, use relative wrapper value instead.
       if (self.options.relativeToWrapper) {
         var scrollPosY = (document.documentElement || document.body.parentNode || document.body).scrollTop || window.pageYOffset;
-        posY = scrollPosY - self.options.wrapper.offsetTop;
+        posY = scrollPosY - self.options.wrapper.getBoundingClientRect().top;
       }
 
 
